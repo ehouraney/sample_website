@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooking Board - Recipes</title>
+    <style>
+        /* Styling for the cooking board website */
+        body {
+            font-family: 'serif;', garamond;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+       header {
+            background-image: url('https://as2.ftcdn.net/jpg/01/57/28/31/1000_F_157283191_ALJy3vuwlPKVdDtPPCZsPpRk3BksFlwF.jpg');
+            background-size: cover;
+            background-position: center center;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            position: relative;
+        }
+
+       header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Recipe Grid Layout */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+            gap: 20px;
+            margin-top: 1rem;
+            justify-items: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            text-align: center; /* Centers text inside cards */
+            height: 50vh; /* Set the height to ensure vertical centering */
+        }
+
+        .recipe-card {
+            font-family:'stencil std;', fantasy;
+            font-weight: 900;
+            position: relative; /* Make sure the label is positioned relative to the card */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #ff6347;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .recipe-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem;
+        }
+
+        /* Recipe Content */
+        .recipe-content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .recipe-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .recipe-content p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Styling for Ingredients List (Two Columns) */
+        .recipe-content ul {
+            display: grid; /* Enable grid layout */
+            grid-template-columns: repeat(2, 1fr); /* Create 2 equal-width columns */
+            gap: 10px; /* Adds space between each list item */
+            padding-left: 20y; /* Removes the default padding on the list */
+        }
+
+        /* Custom bullet point using emojis */
+        .recipe-content ul li {
+            position: relative;
+            padding-left: 25px; /* Adds space for the bullet point */
+        }
+
+        .recipe-content ul li::before {
+            content: '🥘 '; /* You can change this to any emoji you want */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 18px; /* Adjust the size of the bullet point */
+        }
+
+        /* Styling for small images inside recipe cards */
+        .recipe-card .image-label {
+            font-size: 1rem;
+            color: #555;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cooking Board</h1>
+        <p>Delicious Recipes & Ideas</p>
+    </header>
+
+    <main>
+        <!-- Recipe Grid (like Pinterest) -->
+        <div class="recipe-grid">
+            <div class="recipe-card" onclick="showRecipe('recipe1')">
+                <img src="file:///Users/lizahouraney/Downloads/One-Pot%20Chicken%20and%20Rice.jpeg" alt="One-Pot Chicken and Rice">
+                <div class="image-label">One-Pot Chicken and Rice</div>
+            </div>
+            <div class="recipe-card" onclick="showRecipe('recipe2')">
+                <img src="file:///Users/lizahouraney/Downloads/Dubai%20Chocolate.jpeg" alt="Dubai Chocolate">
+                <div class="image-label">Dubai Chocolate</div>
+            </div>
+            <div class="recipe-card" onclick="showRecipe('recipe3')">
+                <img src="file:///Users/lizahouraney/Downloads/Chicken%20Alfredo.jpeg" alt="Chicken Alfredo">
+                <div class="image-label">Chicken Alfredo</div>
+            </div>
+        </div>
+
+        <!-- Recipe Details -->
+        <div id="recipe1" class="recipe-content">
+            <h2>One-Pot Chicken and Rice</h2>
+            <p>How to spice up an everyday meal.</p>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>Chicken Breast</li>
+                <li>Basmati Rice</li>
+                <li>Chickpeas</li>
+                <li>Onion</li>
+                <li>Chicken Broth</li>
+                <li>Salt</li>
+                <li>Cumin</li>
+                <li>Paprika</li>
+                <li>Montreal Chicken Seasoning</li>
+                <li>Radia - Complete Seasoning</li>
+                <li>Chili Powder</li>
+                <li>Zdan - 7 Spice</li>
+                <li>Ground Cinnamon</li>
+                <li>Parsley Flakes</li>
+
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Boil the spaghetti in salted water until al dente.</li>
+                <li>In a pan, heat olive oil and sauté garlic until fragrant.</li>
+                <li>Add tomato sauce, season with salt and pepper, and cook for 5 minutes.</li>
+                <li>Drain the pasta, toss with the sauce, and serve!</li>
+            </ol>
+        </div>
+
+        <div id="recipe2" class="recipe-content">
+            <h2>Pancakes</h2>
+            <p>Fluffy and delicious pancakes for breakfast or brunch.</p>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>Flour - 1 cup</li>
+                <li>Milk - 1 cup</li>
+                <li>Egg - 1</li>
+                <li>Baking powder - 1 tsp</li>
+                <li>Butter - 2 tbsp</li>
+                <li>Maple Syrup - for serving</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Mix all ingredients into a smooth batter.</li>
+                <li>Heat a non-stick pan and pour batter in small circles.</li>
+                <li>Cook until bubbles form, then flip and cook until golden.</li>
+                <li>Serve with butter and maple syrup.</li>
+            </ol>
+        </div>
+
+        <div id="recipe3" class="recipe-content">
+            <h2>Fresh Salad</h2>
+            <p>A light and healthy salad with fresh veggies.</p>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>Lettuce - 1 head</li>
+                <li>Tomato - 1</li>
+                <li>Cucumber - 1</li>
+                <li>Olive oil - 2 tbsp</li>
+                <li>Vinegar - 1 tbsp</li>
+                <li>Salt & Pepper - to taste</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Chop all vegetables and place them in a large bowl.</li>
+                <li>In a separate bowl, mix olive oil, vinegar, salt, and pepper.</li>
+                <li>Pour the dressing over the veggies, toss, and serve!</li>
+            </ol>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript function to handle recipe view
+        function showRecipe(recipeId) {
+            const allRecipes = document.querySelectorAll('.recipe-content');
+            const recipeCards = document.querySelectorAll('.recipe-card');
+
+            // Hide all recipes
+            allRecipes.forEach(recipe => {
+                recipe.style.display = 'none';
+            });
+
+            // Show the selected recipe
+            document.getElementById(recipeId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
